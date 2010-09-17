@@ -2,7 +2,6 @@
 # modified for href rewriting
 import breve.tags
 import breve.tags._ext
-import choke
 
 xmlns = "file:///Users/dwy/Developer/com.artichokelabs/aws/fbml.xsd"
 doctype = ""
@@ -10,33 +9,6 @@ tag_names = ['action', 'bookmark', 'create-button', 'dashboard', 'default', 'dia
 
 tag_names = ['fb:' + tag for tag in tag_names]
 tags = {}
-
-tls = choke.ALThreadStorage(rewrite={
-	'base': [], # replace with your application url, e.g. apps.facebook.com/crap
-	'callback': [], # replace with your callback url, e.g. yourdomain.com/crap
-	'app-relative': ['href', 'action'],
-	'callback-relative': ['clickrewriteurl'],
-})
-
-def prependIfNeeded(value, segments):
-	if value.startswith('/'):
-		value = filter(None, value.split('/'))
-		value = segments + value
-		value = '/'.join(value)
-	return value
-
-def appTagFlattener(tag):
-	if tls.rewrite['base']:
-		for attribute in tls.rewrite['app-relative']:
-			value = tag.attrs.get(attribute, '')
-			if value:
-				tag.attrs[attribute] = prependIfNeeded(value, tls.rewrite['base'])
-	if tls.rewrite['callback']:
-		for attribute in tls.rewrite['callback-relative']:
-			value = tag.attrs.get(attribute, '')
-			if value:
-				tag.attrs[attribute] = prependIfNeeded(value, tls.rewrite['callback'])
-	return breve.tags.flatten_tag(tag)
 
 def fbmlize(t):
 	tx = breve.tags._ext.pythonize(t)
