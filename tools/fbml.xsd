@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fb="http://apps.facebook.com/ns/1.0" 
+targetNamespace="http://apps.facebook.com/ns/1.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xs:element name="action">
+		<xs:complexType>
+			<xs:attribute name="href" type="xs:anyURI" use="required"/>
+			<xs:attribute name="title" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="create-button">
+		<xs:complexType>
+			<xs:attribute name="href" type="xs:anyURI"/>
+			<xs:attribute name="title" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="dashboard">
+		<xs:complexType>
+			<xs:group ref="fb:dashboardTags"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:group name="dashboardTags">
+		<xs:sequence>
+			<xs:element ref="fb:action" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="fb:create-button" minOccurs="0"/>
+			<xs:element ref="fb:help" minOccurs="0"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:element name="editor">
+		<xs:complexType>
+			<xs:group ref="fb:editorTags"/>
+			<xs:attribute name="action" type="xs:anyURI" use="required"/>
+			<xs:attribute name="labelWidth" type="xs:integer"/>
+			<xs:attribute name="width" type="xs:integer"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:group name="editorTags">
+		<xs:sequence>
+			<xs:element ref="fb:editor-button" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="fb:editor-buttonset" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="fb:editor-cancel" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="fb:editor-custom" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="fb:editor-date" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="fb:editor-divider" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="fb:editor-month" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="fb:editor-text" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="fb:editor-textarea" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="fb:editor-time" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:element name="editor-button">
+		<xs:complexType>
+			<xs:attribute name="value" type="xs:string" use="required"/>
+			<xs:attribute name="name" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+
+
+
+	<xs:element name="editor-buttonset">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="fb:editor-button"/>
+				<xs:element ref="fb:editor-cancel"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="editor-cancel">
+		<xs:complexType>
+			<xs:attribute name="value" type="xs:string" default="Cancel"/>
+			<xs:attribute name="href" type="xs:anyURI" default="#"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="editor-custom" type="xs:string"/>
+	<xs:element name="editor-date"/>
+	<xs:element name="editor-divider"/>
+	<xs:element name="editor-month"/>
+	<xs:element name="editor-text"/>
+	<xs:element name="editor-textarea"/>
+	<xs:element name="editor-time"/>
+	<xs:element name="else"/>
+	<xs:element name="error"/>
+	<xs:element name="explanation"/>
+	<xs:element name="fbmlversion"/>
+	<xs:element name="fbml"/>
+	<xs:element name="flv"/>
+	<xs:element name="friend-selector"/>
+	<xs:element name="header"/>
+	<xs:element name="help"/>
+	<xs:element name="if-can-see"/>
+	<xs:element name="if-can-see-photo"/>
+	<xs:element name="if-is-app-user"/>
+	<xs:element name="if-is-friends-with-viewer"/>
+	<xs:element name="if-is-group-member"/>
+	<xs:element name="if-is-own-profile"/>
+	<xs:element name="if-is-user"/>
+	<xs:element name="if-user-has-added-app"/>
+	<xs:element name="iframe"/>
+	<xs:element name="message"/>
+	<xs:element name="message-preview"/>
+	<xs:element name="mobile"/>
+	<xs:element name="multi-friend-input"/>
+	<xs:element name="mp3"/>
+	<xs:element name="name"/>
+	<xs:element name="narrow"/>
+	<xs:element name="notif-email"/>
+	<xs:element name="notif-page"/>
+	<xs:element name="notif-subject"/>
+	<xs:element name="photo"/>
+	<xs:element name="profile-action"/>
+	<xs:element name="profile-pic"/>
+	<xs:element name="pronoun"/>
+	<xs:element name="query"/>
+	<xs:element name="redirect"/>
+	<xs:element name="ref"/>
+	<xs:element name="req-choice"/>
+	<xs:element name="share-button"/>
+	<xs:element name="silverlight"/>
+	<xs:element name="submit"/>
+	<xs:element name="subtitle"/>
+	<xs:element name="success"/>
+	<xs:element name="swf"/>
+	<xs:element name="switch">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="default" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:group ref="fb:standardTags"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="tab-item"/>
+	<xs:element name="tabs"/>
+	<xs:element name="time"/>
+	<xs:element name="title"/>
+	<xs:element name="user"/>
+	<xs:element name="user-item"/>
+	<xs:element name="user-table"/>
+	<xs:element name="user-link"/>
+	<xs:element name="username"/>
+	<xs:element name="wall"/>
+	<xs:element name="wallpost"/>
+	<xs:element name="wallpost-action"/>
+	<xs:element name="wide"/>
+	<xs:group name="standardTags">
+		<xs:sequence>
+			<xs:element ref="fb:editor"/>
+			<xs:element ref="fb:error"/>
+			<xs:element ref="fb:explanation"/>
+			<xs:element ref="fb:flv"/>
+			<xs:element ref="fb:friend-selector"/>
+			<xs:element ref="fb:iframe"/>
+			<xs:element ref="fb:message-preview"/>
+			<xs:element ref="fb:mobile"/>
+			<xs:element ref="fb:multi-friend-input"/>
+			<xs:element ref="fb:mp3"/>
+			<xs:element ref="fb:name"/>
+			<xs:element ref="fb:narrow"/>
+			<xs:element ref="fb:photo"/>
+			<xs:element ref="fb:profile-action"/>
+			<xs:element ref="fb:profile-pic"/>
+			<xs:element ref="fb:pronoun"/>
+			<xs:element ref="fb:redirect"/>
+			<xs:element ref="fb:ref"/>
+			<xs:element ref="fb:share-button"/>
+			<xs:element ref="fb:silverlight"/>
+			<xs:element ref="fb:submit"/>
+			<xs:element ref="fb:success"/>
+			<xs:element ref="fb:swf"/>
+			<xs:element ref="fb:switch"/>
+			<xs:element ref="fb:time"/>
+			<xs:element ref="fb:title"/>
+			<xs:element ref="fb:user"/>
+			<xs:element ref="fb:user-item"/>
+			<xs:element ref="fb:user-table"/>
+			<xs:element ref="fb:user-link"/>
+			<xs:element ref="fb:username"/>
+			<xs:element ref="fb:wall"/>
+			<xs:element ref="fb:wide"/>
+			<xs:group ref="fb:conditionalTags"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="conditionalTags">
+		<xs:sequence>
+			<xs:element ref="fb:if-can-see"/>
+			<xs:element ref="fb:if-can-see-photo"/>
+			<xs:element ref="fb:if-is-app-user"/>
+			<xs:element ref="fb:if-is-friends-with-viewer"/>
+			<xs:element ref="fb:if-is-group-member"/>
+			<xs:element ref="fb:if-is-own-profile"/>
+			<xs:element ref="fb:if-is-user"/>
+			<xs:element ref="fb:if-user-has-added-app"/>
+			<xs:sequence>
+				<xs:element ref="fb:else"/>
+			</xs:sequence>
+		</xs:sequence>
+	</xs:group>
+</xs:schema>
